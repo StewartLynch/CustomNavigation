@@ -20,7 +20,7 @@ struct ContentView: View {
                     Spacer()
                     ZStack {
                         ForEach(0..<menuVM.menus.count) { i in
-                            MenuCircle(activate: self.$activate,
+                            MenuButton(activate: self.$activate,
                                        menuVM: self.menuVM,
                                        menuItem: self.menuVM.menus[i],
                                        index: i)

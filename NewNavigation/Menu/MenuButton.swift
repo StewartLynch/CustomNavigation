@@ -1,5 +1,5 @@
 //
-//  MenuCircle.swift
+//  MenuButton.swift
 //  NewNavigation
 //
 //  Created by Stewart Lynch on 2020-05-18.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MenuCircle: View {
+struct MenuButton: View {
     @Binding var activate:Bool
     @ObservedObject var menuVM:MenuViewModel
     var menuItem:MenuItem
