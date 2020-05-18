@@ -11,75 +11,74 @@ import SwiftUI
 struct MenuCircle: View {
     @Binding var activate:Bool
     @ObservedObject var menuVM:MenuViewModel
-    var menuIcon:MenuIcon
+    var menuItem:MenuItem
     var index: Int
     var body: some View {
         Circle()
-            .fill(menuIcon.color)
+            .fill(menuItem.color)
             .frame(width: 50, height: 50)
         .shadow(radius: 5)
-            .overlay(Image(systemName:menuIcon.icon)
+            .overlay(Image(systemName:menuItem.icon)
                 .foregroundColor(.white)
         ).animation(.spring())
             .onTapGesture {
-                self.swapSelected(index: self.index)
+                self.updateSelected()
                 self.activate.toggle()
         }.offset(x: activate ? 0 : calcOffset().0, y:  activate ? -10 : calcOffset().1)
     }
     
-    func swapSelected(index:Int) {
-        let oldSelected = menuVM.selectedMenu
-        let newSelected = menuVM.unselectedMenus[index]
-        menuVM.unselectedMenus[index] = oldSelected
-        menuVM.selectedMenu = newSelected
+    func updateSelected() {
+        for i in 0..<menuVM.menus.count {
+            menuVM.menus[i].selected = false
+        }
+        menuVM.menus[self.index].selected = true
     }
     
-    func unselectedNames() -> String {
-        return menuVM.unselectedMenus.map{$0.icon}.joined(separator: ", ")
-    }
+
+    
     func calcOffset() -> (CGFloat, CGFloat) {
-        switch self.menuVM.unselectedMenus.count {
+        switch self.menuVM.menus.count {
         case 1:
             return (0, -80)
         case 2:
             switch index {
-            case 1:
+            case 0:
                 return (-60, -80)
             default:
                 return (60, -80)
             }
         case 3:
             switch index {
-            case 1:
+            case 0:
                 return (-80,-50)
-            case 2:
+            case 1:
                 return (0, -100)
             default:
                 return (80, -50)
             }
         case 4:
             switch index {
-            case 1:
+            case 0:
                 return (-90,-20)
-            case 2:
+            case 1:
                 return (-50,-90)
-            case 3:
+            case 2:
                 return (50,-90)
             default:
                 return (90,-20)
             }
         default:  // 5 unselected
             switch index {
+            case 0:
+                return (-100,-20)
             case 1:
-                return (-100,-10)
+                return (-70,-80)
             case 2:
-                return (-70,-70)
+                return (0,-110)
             case 3:
-                return (0,-100)
-            case 4:
-                return (70, -70)
+                return (70, -80)
             default:
-                return (100,-10)
+                return (100,-20)
             }
         }
     }
@@ -87,18 +86,18 @@ struct MenuCircle: View {
 
 struct SelectedMenu : View {
     @Binding var activate:Bool
-    var menuIcon:MenuIcon
+    var menuItem:MenuItem
     var body: some View {
         Circle()
-            .fill(menuIcon.color)
+            .fill(menuItem.color)
             .frame(width: activate ? 65 : 50, height: activate ? 65 : 50)
             .shadow(radius: 5)
-            .overlay(Image(systemName: menuIcon.icon)
+            .overlay(Image(systemName: menuItem.icon)
                 .foregroundColor(.white)
         ).animation(.spring())
             .onTapGesture {
             self.activate.toggle()
         }
-        .offset(x: 0, y: -10)
+        .offset(x: 0, y: activate ? -10 : -20)
     }
 }

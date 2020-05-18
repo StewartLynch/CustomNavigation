@@ -1,5 +1,5 @@
 //
-//  MenuIcon.swift
+//  MenuItem.swift
 //  NewNavigation
 //
 //  Created by Stewart Lynch on 2020-05-18.
@@ -8,9 +8,10 @@
 
 import SwiftUI
 
-struct MenuIcon: Identifiable {
+struct MenuItem: Identifiable {
     let id = UUID()
     var color:Color
     var icon:String
     var menuView: AnyView
+    var selected:Bool
 }

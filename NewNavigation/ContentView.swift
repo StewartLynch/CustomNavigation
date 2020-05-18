@@ -19,15 +19,20 @@ struct ContentView: View {
                 VStack() {
                     Spacer()
                     ZStack {
-                        ForEach(0..<menuVM.unselectedMenus.count) { i in
-                            MenuCircle(activate: self.$activate, menuVM: self.menuVM, menuIcon: self.menuVM.unselectedMenus[i], index: i)
+                        ForEach(0..<menuVM.menus.count) { i in
+                            MenuCircle(activate: self.$activate,
+                                       menuVM: self.menuVM,
+                                       menuItem: self.menuVM.menus[i],
+                                       index: i)
                         }
                         SelectedMenu(activate: self.$activate,
-                                     menuIcon: menuVM.selectedMenu)
+                                     menuItem: menuVM.selectedMenu)
                     }
                 }
             }
-        }.edgesIgnoringSafeArea(.all)
+        }
+        .edgesIgnoringSafeArea(activate ? .horizontal : .all)
+        .animation(.spring())
     }
 }
 
