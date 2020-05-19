@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MenuButton: View {
-    @Binding var activate:Bool
+    @Binding var isActivated:Bool
     @ObservedObject var menuVM:MenuViewModel
     var menuItem:MenuItem
     var index: Int
@@ -23,8 +23,8 @@ struct MenuButton: View {
         ).animation(.spring())
             .onTapGesture {
                 self.updateSelected()
-                self.activate.toggle()
-        }.offset(x: activate ? 0 : calcOffset().0, y:  activate ? -10 : calcOffset().1)
+                self.isActivated.toggle()
+        }.offset(x: isActivated ? 0 : calcOffset().0, y:  isActivated ? -10 : calcOffset().1)
     }
     
     func updateSelected() {
@@ -85,19 +85,19 @@ struct MenuButton: View {
 }
 
 struct SelectedMenu : View {
-    @Binding var activate:Bool
+    @Binding var isActivated:Bool
     var menuItem:MenuItem
     var body: some View {
         Circle()
             .fill(menuItem.color)
-            .frame(width: activate ? 65 : 50, height: activate ? 65 : 50)
+            .frame(width: isActivated ? 65 : 50, height: isActivated ? 65 : 50)
             .shadow(radius: 5)
             .overlay(Image(systemName: menuItem.icon)
                 .foregroundColor(.white)
         ).animation(.spring())
             .onTapGesture {
-            self.activate.toggle()
+            self.isActivated.toggle()
         }
-        .offset(x: 0, y: activate ? -10 : -20)
+        .offset(x: 0, y: isActivated ? -10 : -20)
     }
 }

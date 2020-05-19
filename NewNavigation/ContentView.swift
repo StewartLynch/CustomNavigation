@@ -9,29 +9,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var activate:Bool = true
+    @State private var isActivated:Bool = true
     @ObservedObject var menuVM = MenuViewModel()
     var body: some View {
         ZStack {
             menuVM.selectedMenu.menuView
             ZStack {
-                Color.black.opacity(activate ? 0 : 0.2)
+                Color.black.opacity(isActivated ? 0 : 0.2)
                 VStack() {
                     Spacer()
                     ZStack {
                         ForEach(0..<menuVM.menus.count) { i in
-                            MenuButton(activate: self.$activate,
+                            MenuButton(isActivated: self.$isActivated,
                                        menuVM: self.menuVM,
                                        menuItem: self.menuVM.menus[i],
                                        index: i)
                         }
-                        SelectedMenu(activate: self.$activate,
+                        SelectedMenu(isActivated: self.$isActivated,
                                      menuItem: menuVM.selectedMenu)
                     }
                 }
             }
         }
-        .edgesIgnoringSafeArea(activate ? .horizontal : .all)
+        .edgesIgnoringSafeArea(isActivated ? .horizontal : .all)
         .animation(.spring())
     }
 }

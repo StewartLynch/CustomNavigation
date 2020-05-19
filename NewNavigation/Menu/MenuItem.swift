@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-struct MenuItem: Identifiable {
-    let id = UUID()
+struct MenuItem {
     var color:Color
     var icon:String
     var menuView: AnyView

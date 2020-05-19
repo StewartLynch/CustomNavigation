@@ -13,11 +13,14 @@ class MenuViewModel: ObservableObject {
         MenuItem(color: .red, icon: "house.fill", menuView: AnyView(HomeView()), selected: true),
         MenuItem(color: .blue, icon: "car.fill", menuView: AnyView(SecondView()), selected: false),
         MenuItem(color: .green, icon: "mappin.circle.fill", menuView: AnyView(ThirdView()), selected: false),
-        MenuItem(color: .orange, icon: "3.circle.fill", menuView: AnyView(FourthView()), selected: false),
-        MenuItem(color: .yellow, icon: "4.circle.fill", menuView: AnyView(FifthView()), selected: false)
+        MenuItem(color: .orange, icon: "4.circle.fill", menuView: AnyView(FourthView()), selected: false),
+        MenuItem(color: .yellow, icon: "5.circle.fill", menuView: AnyView(FifthView()), selected: false)
     ]
     
     var selectedMenu:MenuItem {
+        guard menus.filter({$0.selected}).first != nil else {
+            fatalError("You need to set one of the MenuItems in MenuViewModel.menus as selected: true")
+        }
         return menus.filter{$0.selected}.first!
     }
 
