@@ -12,7 +12,9 @@ struct MenuButton: View {
     @Binding var isActivated:Bool
     @ObservedObject var menuVM:MenuViewModel
     var menuItem:MenuItem
-    var index: Int
+    var index: Int {
+        return menuVM.menus.firstIndex{$0.id == menuItem.id}!
+    }
     var body: some View {
         Circle()
             .fill(menuItem.color)
