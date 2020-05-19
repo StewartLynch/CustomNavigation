@@ -11,16 +11,14 @@ import SwiftUI
 struct MenuButton: View {
     @Binding var isActivated:Bool
     @ObservedObject var menuVM:MenuViewModel
-    var menuItem:MenuItem
-    var index: Int {
-        return menuVM.menus.firstIndex{$0.id == menuItem.id}!
-    }
+    var index: Int
+
     var body: some View {
         Circle()
-            .fill(menuItem.color)
+            .fill(menuVM.menus[index].color)
             .frame(width: isActivated ? 50 : 20, height: isActivated ? 50 : 20)
         .shadow(radius: 5)
-            .overlay(Image(systemName:menuItem.icon)
+            .overlay(Image(systemName:menuVM.menus[index].icon)
                 .foregroundColor(.white)
         ).animation(.spring())
             .onTapGesture {
@@ -31,7 +29,7 @@ struct MenuButton: View {
     
     func updateSelected() {
         for i in 0..<menuVM.menus.count {
-            menuVM.menus[i].selected = menuVM.menus[i].id == menuItem.id
+            menuVM.menus[i].selected = menuVM.menus[i].id == menuVM.menus[index].id
         }
     }
     
