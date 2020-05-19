@@ -31,9 +31,8 @@ struct MenuButton: View {
     
     func updateSelected() {
         for i in 0..<menuVM.menus.count {
-            menuVM.menus[i].selected = false
+            menuVM.menus[i].selected = menuVM.menus[i].id == menuItem.id
         }
-        menuVM.menus[self.index].selected = true
     }
     
 
