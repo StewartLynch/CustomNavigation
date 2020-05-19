@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct MenuItem {
-    var color:Color
-    var icon:String
-    var menuView: AnyView
+    let color:Color
+    let icon:String
+    let menuView: AnyView
     var selected:Bool
 }

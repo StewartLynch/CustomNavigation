@@ -18,10 +18,10 @@ class MenuViewModel: ObservableObject {
     ]
     
     var selectedMenu:MenuItem {
-        guard menus.filter({$0.selected}).first != nil else {
+        guard let selected = menus.filter({$0.selected}).first  else {
             fatalError("You need to set one of the MenuItems in MenuViewModel.menus as selected: true")
         }
-        return menus.filter{$0.selected}.first!
+        return selected
     }
 
 }
