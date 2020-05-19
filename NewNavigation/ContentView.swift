@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isActivated:Bool = true
+    @State private var isActivated:Bool = false
     @ObservedObject var menuVM = MenuViewModel()
     var body: some View {
         ZStack {
             menuVM.selectedMenu.menuView
             ZStack {
-                Color.black.opacity(isActivated ? 0 : 0.2)
+                Color.black.opacity(isActivated ? 0.2 : 0)
                 VStack() {
                     Spacer()
                     ZStack {
@@ -31,7 +31,7 @@ struct ContentView: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(isActivated ? .horizontal : .all)
+        .edgesIgnoringSafeArea(isActivated ? .all : .horizontal)
         .animation(.spring())
     }
 }

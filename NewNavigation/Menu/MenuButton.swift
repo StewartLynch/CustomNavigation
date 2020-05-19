@@ -24,7 +24,7 @@ struct MenuButton: View {
             .onTapGesture {
                 self.updateSelected()
                 self.isActivated.toggle()
-        }.offset(x: isActivated ? 0 : calcOffset().0, y:  isActivated ? -10 : calcOffset().1)
+        }.offset(x: isActivated ? calcOffset().0 : 0, y:  isActivated ? calcOffset().1 : -10)
     }
     
     func updateSelected() {
@@ -90,7 +90,7 @@ struct SelectedMenu : View {
     var body: some View {
         Circle()
             .fill(menuItem.color)
-            .frame(width: isActivated ? 65 : 50, height: isActivated ? 65 : 50)
+            .frame(width: isActivated ? 50 : 65, height: isActivated ? 50 : 65)
             .shadow(radius: 5)
             .overlay(Image(systemName: menuItem.icon)
                 .foregroundColor(.white)
@@ -98,6 +98,6 @@ struct SelectedMenu : View {
             .onTapGesture {
             self.isActivated.toggle()
         }
-        .offset(x: 0, y: isActivated ? -10 : -20)
+        .offset(x: 0, y: isActivated ? -20 : -10)
     }
 }
