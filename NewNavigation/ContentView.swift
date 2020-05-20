@@ -22,7 +22,7 @@ struct ContentView: View {
                         ForEach(0..<menuVM.menus.count) { i in
                             MenuButton(isActivated: self.$isActivated,
                                        menuVM: self.menuVM,
-                                       index: i)
+                                       currentItemIndex: i)
                         }
                         SelectedMenu(isActivated: self.$isActivated,
                                      menuItem: menuVM.selectedMenu)

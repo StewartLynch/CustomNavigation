@@ -11,14 +11,15 @@ import SwiftUI
 struct MenuButton: View {
     @Binding var isActivated:Bool
     @ObservedObject var menuVM:MenuViewModel
-    var index: Int
+    var currentItemIndex: Int
 
     var body: some View {
-        Circle()
-            .fill(menuVM.menus[index].color)
+        let menuItem = menuVM.menus[currentItemIndex]
+        return Circle()
+            .fill(menuItem.color)
             .frame(width: isActivated ? 50 : 20, height: isActivated ? 50 : 20)
         .shadow(radius: 5)
-            .overlay(Image(systemName:menuVM.menus[index].icon)
+            .overlay(Image(systemName:menuItem.icon)
                 .foregroundColor(.white)
         ).animation(.spring())
             .onTapGesture {
@@ -28,8 +29,9 @@ struct MenuButton: View {
     }
     
     func updateSelected() {
+        let menuItem = menuVM.menus[currentItemIndex]
         for i in 0..<menuVM.menus.count {
-            menuVM.menus[i].selected = menuVM.menus[i].id == menuVM.menus[index].id
+            menuVM.menus[i].selected = menuItem.id == menuVM.menus[i].id
         }
     }
     
@@ -38,14 +40,14 @@ struct MenuButton: View {
     func calcOffset() -> (x: CGFloat, y: CGFloat) {
         switch self.menuVM.menus.count {
         case 2:
-            switch index {
+            switch currentItemIndex {
             case 0:
                 return (-70, -70)
             default:
                 return (70, -70)
             }
         case 3:
-            switch index {
+            switch currentItemIndex {
             case 0:
                 return (-70,-70)
             case 1:
@@ -54,7 +56,7 @@ struct MenuButton: View {
                 return (70, -70)
             }
         case 4:
-            switch index {
+            switch currentItemIndex {
             case 0:
                 return (-90,-40)
             case 1:
@@ -64,8 +66,8 @@ struct MenuButton: View {
             default:
                 return (90,-40)
             }
-        default:  // 5 unselected
-            switch index {
+        default:  // 5
+            switch currentItemIndex {
             case 0:
                 return (-100,-20)
             case 1:
