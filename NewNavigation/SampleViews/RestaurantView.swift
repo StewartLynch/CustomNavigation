@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ThirdView: View {
+struct RestaurantView: View {
     var body: some View {
         let first = Restaurant(name: "Joe's Original")
         let second = Restaurant(name: "The Real Joe's Original")
@@ -27,7 +27,7 @@ struct ThirdView: View {
 
 struct ThirdView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdView()
+        RestaurantView()
     }
 }
 

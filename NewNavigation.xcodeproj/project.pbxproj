@@ -17,10 +17,8 @@
 		BB7B583524730BA00038A541 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B583424730BA00038A541 /* MenuItem.swift */; };
 		BB7B583724730DFA0038A541 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B583624730DFA0038A541 /* MenuViewModel.swift */; };
 		BBB98308247331A600669E87 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB98307247331A600669E87 /* HomeView.swift */; };
-		BBB9830A24733F7A00669E87 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9830924733F7A00669E87 /* SecondView.swift */; };
-		BBB9830C24733F8A00669E87 /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9830B24733F8A00669E87 /* ThirdView.swift */; };
-		BBB9830E24733F9600669E87 /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9830D24733F9600669E87 /* FourthView.swift */; };
-		BBB9831024733FA500669E87 /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9830F24733FA500669E87 /* FifthView.swift */; };
+		BBB9830A24733F7A00669E87 /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9830924733F7A00669E87 /* CarView.swift */; };
+		BBB9830C24733F8A00669E87 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9830B24733F8A00669E87 /* RestaurantView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +34,8 @@
 		BB7B583424730BA00038A541 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		BB7B583624730DFA0038A541 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		BBB98307247331A600669E87 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		BBB9830924733F7A00669E87 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
-		BBB9830B24733F8A00669E87 /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
-		BBB9830D24733F9600669E87 /* FourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthView.swift; sourceTree = "<group>"; };
-		BBB9830F24733FA500669E87 /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
+		BBB9830924733F7A00669E87 /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
+		BBB9830B24733F8A00669E87 /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				BB2EF1212471BFE5001A3F3F /* AppDelegate.swift */,
-				BB4028882473316900F435D0 /* DisplayViews */,
+				BB4028882473316900F435D0 /* SampleViews */,
 				BB2EF1232471BFE5001A3F3F /* SceneDelegate.swift */,
 				BB2EF1252471BFE5001A3F3F /* ContentView.swift */,
 				BB4028872473315600F435D0 /* Menu */,
@@ -103,16 +99,14 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		BB4028882473316900F435D0 /* DisplayViews */ = {
+		BB4028882473316900F435D0 /* SampleViews */ = {
 			isa = PBXGroup;
 			children = (
 				BBB98307247331A600669E87 /* HomeView.swift */,
-				BBB9830924733F7A00669E87 /* SecondView.swift */,
-				BBB9830B24733F8A00669E87 /* ThirdView.swift */,
-				BBB9830D24733F9600669E87 /* FourthView.swift */,
-				BBB9830F24733FA500669E87 /* FifthView.swift */,
+				BBB9830924733F7A00669E87 /* CarView.swift */,
+				BBB9830B24733F8A00669E87 /* RestaurantView.swift */,
 			);
-			path = DisplayViews;
+			path = SampleViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7B583524730BA00038A541 /* MenuItem.swift in Sources */,
-				BBB9830C24733F8A00669E87 /* ThirdView.swift in Sources */,
+				BBB9830C24733F8A00669E87 /* RestaurantView.swift in Sources */,
 				BBB98308247331A600669E87 /* HomeView.swift in Sources */,
-				BBB9830A24733F7A00669E87 /* SecondView.swift in Sources */,
-				BBB9831024733FA500669E87 /* FifthView.swift in Sources */,
-				BBB9830E24733F9600669E87 /* FourthView.swift in Sources */,
+				BBB9830A24733F7A00669E87 /* CarView.swift in Sources */,
 				BB2EF1222471BFE5001A3F3F /* AppDelegate.swift in Sources */,
 				BB2EF1242471BFE5001A3F3F /* SceneDelegate.swift in Sources */,
 				BB7B583724730DFA0038A541 /* MenuViewModel.swift in Sources */,

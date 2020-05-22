@@ -9,19 +9,18 @@
 import SwiftUI
 
 class MenuViewModel: ObservableObject {
-    @Published var menus:[MenuItem] = [
+    @Published var menus: [MenuItem] = [
         MenuItem(color: .red, icon: "house.fill", menuView: AnyView(HomeView()), selected: true),
-        MenuItem(color: .blue, icon: "car.fill", menuView: AnyView(SecondView()), selected: false),
-        MenuItem(color: .green, icon: "mappin.circle.fill", menuView: AnyView(ThirdView()), selected: false),
-        MenuItem(color: .orange, icon: "4.circle.fill", menuView: AnyView(FourthView()), selected: false),
-        MenuItem(color: .yellow, icon: "5.circle.fill", menuView: AnyView(FifthView()), selected: false)
+        MenuItem(color: .blue, icon: "car.fill", menuView: AnyView(CarView()), selected: false),
+        MenuItem(color: .green, icon: "map.fill", menuView: AnyView(RestaurantView()), selected: false),
+//        MenuItem(color: .orange, icon: "4.circle.fill", menuView: AnyView(Text("Fourth View")), selected: false),
+//        MenuItem(color: .yellow, icon: "5.circle.fill", menuView: AnyView(Text("Fifth View")), selected: false)
     ]
     
-    var selectedMenu:MenuItem {
+    var selectedMenu: MenuItem {
         guard let selected = menus.filter({$0.selected}).first  else {
             fatalError("You need to set one of the MenuItems in MenuViewModel.menus as selected: true")
         }
         return selected
     }
-
 }
